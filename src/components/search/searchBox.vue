@@ -82,20 +82,28 @@
 <script>
 import Vue from 'vue'
 import searchList from './searchlist'
-import { mapGetters } from 'vuex'
+import { mapGetters,mapMutations,mapActions } from 'vuex'
 import { MiXin } from '@/common/mixin.js'
-export default {
-  
+export default { 
   data () {
     return {
-      
     }
   },
   mixins:[MiXin],
+  computed: {
+    ...mapGetters([
+      'searchValue',
+    ]),
+  },
   methods:{
+    
     search(event){
-      console.log(event.currentTarget.value)  
-	  }
+      // console.log(event.currentTarget.value)
+      this.getSearchValue(event.currentTarget.value)
+    },
+    ...mapActions([
+      'getSearchValue',
+    ])
   },
   components:{
     'search-list': searchList

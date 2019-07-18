@@ -41,12 +41,13 @@
 </template>
 
 <script>
+import Vue from 'vue'
 import { mapGetters } from 'vuex'
 import { ListMixin } from '@/common/mixin.js'
 export default {
   data () {
     return {
-      hotkey: '长安十二时辰'
+      
     }
   },
   mixins:[ListMixin],

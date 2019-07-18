@@ -1,2 +1,3 @@
 export const COM_SHOW_SEARCH_LIST = 'COM_SHOW_SEARCH_LIST'//展示/隐藏搜索的列表
 export const SHOW_TOTAL_LIST = 'SHOW_TOTAL_LIST'// 显示所有的导航列表
+export const GET_SEARCH_VALUE = 'GET_SEARCH_VALUE' //获取输入框里面的值

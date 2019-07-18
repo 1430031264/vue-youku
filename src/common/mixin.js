@@ -4,7 +4,7 @@ export const MiXin = {
   computed: {
     ...mapGetters([
       'DisplayList',
-      'total'
+      'total',
     ]),
   },
   methods:{
@@ -28,7 +28,9 @@ export const ListMixin = {
   computed: {
     ...mapGetters([
       // 'DisplayList',
-      'whenSearch'
+      'whenSearch',
+      'hotkey',
+      'searchValue'
     ])
   },
   methods: {

@@ -83,29 +83,18 @@
 import Vue from 'vue'
 import searchList from './searchlist'
 import { mapGetters } from 'vuex'
+import { MiXin } from '@/common/mixin.js'
 export default {
+  
   data () {
     return {
+      
     }
   },
-  computed: {
-    ...mapGetters([
-      'DisplayList',
-      'total'
-    ]),
-  },
+  mixins:[MiXin],
   methods:{
-    Search () {
-      this.$store.dispatch('setShowSearchList',true)
-    },
-    disPlayTotal () {
-      this.$store.dispatch('setShowTotalList',true)
-    },
-    hideTotal () {
-      this.$store.dispatch('setShowTotalList',false)
-    },
     search(event){
-	    console.log(event.currentTarget.value)
+      console.log(event.currentTarget.value)  
 	  }
   },
   components:{

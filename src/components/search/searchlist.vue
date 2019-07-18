@@ -42,23 +42,14 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { ListMixin } from '@/common/mixin.js'
 export default {
   data () {
     return {
       hotkey: '长安十二时辰'
     }
   },
-  computed: {
-    ...mapGetters([
-      // 'DisplayList',
-      'whenSearch'
-    ])
-  },
-  methods:{
-    Close () {
-      this.$store.dispatch('setShowSearchList',false)
-    }
-  },
+  mixins:[ListMixin],
 }
 </script>
 

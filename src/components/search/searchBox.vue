@@ -1,17 +1,20 @@
 <template>
-<div class="yk-header">
+<div class="yk-header" v-show="$route.name !== 'user'">
   <div class="yk-header-container">
-    <a href="https://www.youku.com">
+    <!-- 优酷logo -->
+    <a href="#">
       <img src="https://gw.alicdn.com/tfs/TB1sG87RsfpK1RjSZFOXXa6nFXa-168-34.png" alt="" class="icon">
     </a>
+    <!-- 搜索框 -->
     <div class="yk-search-container">
       <!-- 输入框只要输入的值变化了就会触发 input 调用 search 数据实时获取通过 event.currentTarget.value 获取到 -->
       <input type="text" id="yk-search-input" placeholder="aaaaaa" @click="Search"  @keyup.enter="search" @input="search($event)" />
       <img src="https://img.alicdn.com/tfs/TB15zSoX21TBuNjy0FjXXajyXXa-48-48.png" alt="" class="search-logo">
     </div>
-    <router-link to="/user">
-      <img src="https://static.youku.com/lvip/img/avatar/50/11.png" alt="" class="userIcon">
-    </router-link>
+    <!-- 用户icon -->
+        <div @click="Displayheader">
+        <img src="@/images/my.png" alt="" class="userIcon">
+      </div>
   </div>
   <search-list v-show="DisplayList"></search-list>
   <div class="yk-nav">
@@ -93,21 +96,27 @@ export default {
   computed: {
     ...mapGetters([
       'searchValue',
+      'DisplayHeader'
     ]),
   },
   methods:{
-    
+    Displayheader(){
+      console.log('---')
+     this.$router.push({name:'user'})
+    //  this.$router.push({path:'user'})
+    },
     search(event){
       // console.log(event.currentTarget.value)
       this.getSearchValue(event.currentTarget.value)
     },
     ...mapActions([
       'getSearchValue',
+      // 'setShowHeader'
     ])
   },
   components:{
     'search-list': searchList
-  },
+  }
 }
 </script>
 
@@ -177,7 +186,7 @@ export default {
   font-size: 1.0666rem;
   height: 2.6rem;
   line-height: 1.333rem;
-  margin-left: 1rem;
+  margin-left: 0.75rem;
   margin-right: 1rem;
   white-space: nowrap;
 }
